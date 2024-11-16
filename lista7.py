@@ -87,6 +87,7 @@ primo(numX)
 """
 
 """
+9)
 def fat(n):
     if n < 0: 
         print("Digite números positivos!")
