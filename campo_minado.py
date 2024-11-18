@@ -11,7 +11,8 @@ def grade(matriz):
                 if (j, i) in posBomba:
                     matriz[i][j] = "B "
                 else:
-                    matriz[i][j] = f"{contar_bombas_ao_redor((j, i), posBomba)} "
+                    matriz[i][j] = f"{contBombas((j, i), posBomba)} "
+
     for linha in range(len(matriz)):
         print(linha, end="  ")
         for elemento in matriz[linha]:
@@ -36,7 +37,6 @@ def eBomba(colunas, linhas, matriz):
         
         tentativa = escolhaColuna, escolhaNumero
         tentativas_feitas.append(tentativa)
-        print(tentativas_feitas, tentativa)
         
         if tentativa in posBomba:
             print("Você perdeu!")
@@ -56,7 +56,7 @@ def eBomba(colunas, linhas, matriz):
 
             grade(marcar(escolhaColuna, escolhaNumero, matriz))
 
-def contar_bombas_ao_redor(jogada, coordenadas_bombas):
+def contBombas(jogada, coordenadas_bombas):
     linhas = colunas = 10
     x, y = jogada
     bombas_ao_redor = 0
