@@ -26,7 +26,7 @@ def eBomba(colunas, linhas, matriz):
     global posBomba
     posBomba = bomba(colunas, linhas)
     
-    print("Posição da bomba (debug): ", posBomba)
+    #print("Posição da bomba (debug): ", posBomba)
     
     while True:
         escolhaLetra = input("Escolha uma coluna pela Letra correspondente: ").upper()
@@ -42,7 +42,9 @@ def eBomba(colunas, linhas, matriz):
             print("Você perdeu!")
             grade(matriz)
             break
-                
+        elif verifVitoria(colunas, linhas, tentativas_feitas, posBomba):
+            print("Parabéns! Você ganhou!")
+            break   
         else:
             grade(matriz)
             print("Continue!")
@@ -71,6 +73,14 @@ def contBombas(jogada, coordenadas_bombas):
 def marcar(coluna, linha, matriz):
     matriz[linha][coluna] = "M "
     return matriz
+
+def verifVitoria(colunas, linhas, tentativas_feitas, posBombas):
+    total_posicoes = colunas * linhas
+    posicoes_sem_bombas = total_posicoes - len(posBombas)
+    
+    if len(tentativas_feitas) == posicoes_sem_bombas:
+        return True
+    return False
 
 colunas = 10
 linhas = 10
