@@ -57,6 +57,29 @@ print(f"A multiplicação desses números é: {multiplica(numX, numY)}")
 """
 
 """
+5)
+def multiplicaManual(x, y):
+    sinal = 1
+    if (x < 0 and y >= 0) or (x >= 0 and y < 0):
+        sinal = -1
+    
+    # Torna ambos os números positivos
+    x = abs(x)
+    y = abs(y)
+
+    cont = 0
+    for i in range(1, y + 1):
+        cont += x
+
+    cont *= sinal
+    print(f"{x} X {y} = {cont}")
+
+numX = int(input("Digite um número X: "))
+numY = int(input("Digite um número Y: "))
+multiplicaManual(numX, numY)
+"""
+
+"""
 6)
 def potencia(x, y):
     return x ** y
@@ -64,6 +87,32 @@ def potencia(x, y):
 numX = int(input("Digite um número X: "))
 numY = int(input("Digite um número Y: "))
 print(f"A potencia de X elevado a Y é: {potencia(numX, numY)}")
+"""
+
+"""
+7)
+def potenciaManual(base, expoente):
+    if expoente == 0:
+        print(f"{base}^{expoente} = 1")
+        return
+    
+    resultado_negativo = False
+    if expoente < 0:
+        expoente = -expoente
+        resultado_negativo = True
+    
+    resultado = 1
+    for _ in range(expoente):
+        resultado *= base
+    
+    if resultado_negativo:
+        resultado = 1 / resultado
+    
+    print(f"{base}^{expoente} = {resultado}")
+
+numBase = int(input("Digite um número base: "))
+numExpoente = int(input("Digite um número expoente: "))
+potenciaManual(numBase, numExpoente)
 """
 
 """
@@ -102,4 +151,48 @@ def fat(n):
 
 numN = int(input("Digite um número inteiro: "))
 fat(numN)
+"""
+
+"""
+10)
+def fatorial(num):
+    if num < 0: 
+        print("Digite números positivos!")
+    
+    contador = 1
+    for i in range(1, num + 1):
+        contador *= i
+    return contador
+
+numN = int(input("Digite um número N inteiro: "))
+numP = int(input("Digite um número P inteiro: "))
+divisor =  numN - numP
+
+if numN < numP:
+    print("O valor do calculo de Arranjo é: -1")
+else:
+    arranjo = fatorial(numN) / fatorial(divisor)
+    print(f"O valor do calculo de Arranjo é: {arranjo}")
+"""
+
+"""
+11)
+def fatorial(num):
+    if num < 0: 
+        print("Digite números positivos!")
+    
+    contador = 1
+    for i in range(1, num + 1):
+        contador *= i
+    return contador
+
+numN = int(input("Digite um número N inteiro: "))
+numP = int(input("Digite um número P inteiro: "))
+divisor =  numN - numP
+
+if numN < numP:
+    print("O valor do calculo de Arranjo é: -1")
+else:
+    combinacao = fatorial(numN) / (fatorial(numP) * fatorial(divisor))
+    print(f"O valor do calculo de combinacao é: {combinacao}")
 """
